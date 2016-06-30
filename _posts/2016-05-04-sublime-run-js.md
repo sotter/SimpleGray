@@ -4,11 +4,12 @@ title: SublimeText3 支持执行运行JS，记录下过程；
 category: default
 ---
 
-##MAC SublimeText3 run JavaScript
+#MAC SublimeText3 run JavaScript
 
 SublimeText3 支持执行运行JS，记录下过程；
 
-####1. MAC JS解析引擎
+1. MAC JS解析引擎
+--
 
 ***MAC已经自带js的控制台:***
 
@@ -26,7 +27,8 @@ http://stackoverflow.com/questions/10424872/brew-install-mongodb-error-cowardly-
 ***验证环境***
   node test.js 查看执行结果；
 
-####2. Sublime支持
+2. Sublime支持
+--
 
 参考文档：
 http://www.wikihow.com/Create-a-Javascript-Console-in-Sublime-Text
