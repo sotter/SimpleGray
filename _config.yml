@@ -9,7 +9,12 @@ desc: Some description of your site.
 
 markdown: redcarpet
 redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+  extensions: [ "hard_wrap","autolink", "fenced_code_blocks", "tables", "strikethrough", "superscript", "with_toc_data", "highlight", "prettify","no_intra_emphasis"]
+
+
+文／codeGlider（简书作者）
+原文链接：http://www.jianshu.com/p/558a5d50e077
+著作权归作者所有，转载请联系作者获得授权，并标注“简书作者”。
 
 #markdown: kramdown
 #kramdown:
