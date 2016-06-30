@@ -9,7 +9,7 @@
 var site = {
 	InitMap: {
 		list: function () {
-			site.VAR_AUTO_LOAD_ON_SCROLL && elf(window).on('scroll', site.Handlers.scrolling);
+			// site.VAR_AUTO_LOAD_ON_SCROLL && elf(window).on('scroll', site.Handlers.scrolling);
 		},
 		
 		post: function () {
