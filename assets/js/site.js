@@ -52,7 +52,8 @@ var site = {
 			content = content.join('</p>');
 			content = content.split(/<\/article>/)[0];
 			article.query('>.article-content').html(content);
-			article.attr('content-loaded', 1);
+			// article.attr('content-loaded', 1);
+			article.attr('content-loaded', 0);
 			article.query('pre').forEach(function (item) {
 				hljs.highlightBlock(item);
 			});
