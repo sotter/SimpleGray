@@ -75,17 +75,17 @@ http请求由三部分组成，分别是：请求行、消息报头、请求正�
 
 > Cache-Control: max-age=0``` 缓存策略，为了提升性能和减少服务器重复请求的压力， max-age表示缓存失效时间；告知服务端是没有响应的；
 
-> Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8```
+> Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
 
 表示浏览器想要接受的文件格式，如果是文本的html格式，application的xhtml+xml格式的，image webp格式的；
 
 `Upgrade-Insecure-Requests: 1` 浏览器可以自动升级请求；
 
-```User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.86 Safari/537.36``` 浏览器把自己的信息告知服务端，服务端可以根据不同的浏览器类型和版本号做适配；
+`User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.86 Safari/537.36`浏览器把自己的信息告知服务端，服务端可以根据不同的浏览器类型和版本号做适配；
 
-```Accept-Encoding: gzip, deflate, sdch``` 浏览器支持的编码格式；
+`Accept-Encoding: gzip, deflate, sdch` 浏览器支持的编码格式；
 
-```Accept-Language: zh-CN,zh;q=0.8```  浏览器可支持的语言类型，如果这个字段没有设置，表示各种语言都可以接受；
+`Accept-Language: zh-CN,zh;q=0.8`  浏览器可支持的语言类型，如果这个字段没有设置，表示各种语言都可以接受；
 
 ####2. 响应数据分析
 
@@ -121,13 +121,14 @@ Respone主要由3部分组成：状态行，包头，包体组成； 通过抓�
 HTTP/1.1 200 OK   由协议版本、状态码、message三部分组成；
 
 引申：状态码
+
 |状态码|含义|示例|
 |---|---|---|
 |1XX |提示信息 - 表示请求已被成功接收，继续处理 | |
 |2XX |成功 - 表示请求已被成功接收，理解，接受 ||
 |3XX |重定向 - 要完成请求必须进行更进一步的处理 | |
 |4XX |客户端错误 - 请求有语法错误或请求无法实现 | |
-|5XX |服务器端错误 - 服务器未能实现合法的请求| |
+|5XX |服务器端错误 - 服务器未能实现合法的请求||
 
 详细含义可查看维基百科：
 https://zh.wikipedia.org/wiki/HTTP%E7%8A%B6%E6%80%81%E7%A0%81
@@ -165,8 +166,8 @@ Content-Type: application/x-www-form-urlencoded
 
 二者的命令行是不一样的，GET携带了参数，而post没有；
 
-```GET /load_balancer?client_type=1&client_version=300 HTTP/1.1```
+> GET /load_balancer?client_type=1&client_version=300 HTTP/1.1
 
-``` POST /load_balancer HTTP/1.1 ```
+> POST /load_balancer HTTP/1.1 
 
 POST消息体有内容，GET方式没有；
