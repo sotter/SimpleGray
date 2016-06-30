@@ -7,10 +7,10 @@ name: sotter.github.io
 host: localhost
 desc: Some description of your site.
 
-markdown: redcarpet
-redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
-
+markdown: kramdown
+kramdown:
+  input: GFM # Enable GitHub Flavored Markdown (fenced code blocks)
+  hard_wrap: false
 highlighter: rouge
 
 custom:
