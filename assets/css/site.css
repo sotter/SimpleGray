@@ -1,6 +1,6 @@
 *{box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;}
 html,body,h1,h2,h3,h4,h5,h6,ul,ol,li,p,form,dl,dt,dd,figure{margin:0; padding:0; border:0;}
-body{line-height:1.6em; font-family:Helvetica, Arial, sans-serif; color:#555;}
+body{line-height:1.6em;  font-family: "Monaco", Helvetica, Arial, sans-serif; color:#555;}
 a{margin:0 2px; color:#06c; text-decoration:none;}
 a:hover{text-decoration:underline;}
 h1 a,h2 a,h3 a,h4 a,h5 a,h6 a{margin:0;}
@@ -84,13 +84,13 @@ article dl dd>ol{padding-left:1em;}
 article pre{width:100%; overflow-x:auto; line-height:1.2em; border:1px solid #ccc; background:#F8F8FF; font-size:85%;}
 article pre{width:100%; overflow-x:auto; line-height:150%; border:1px solid #ccc; background:#F8F8FF; font-size:85%;}
 
-article code{margin:auto 1px; padding:auto 2px; background:#f8f8f8; font-family:"Inconsolata", "Monaco", "Consolas", "Andale Mono", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;}
+article code{margin:auto 1px; padding:auto 2px; background:#f8f8f8; font-family:"Monaco", "Inconsolata", "Consolas", "Andale Mono", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;}
 article table{border-collapse:collapse;}
 article th,article td{padding:0 10px; border:1px solid #ccc; font-size:85%;}
 article th{background:#eee; text-align:left;}
 article td{background:#fff;}
 article table a{margin:0;}
-article blockquote{line-height:1.6em; margin:1em 0 1em 1.5em; border-left:2px solid #eee; padding-left:1em; font-size:90%;}
+article blockquote{line-height:1.6em; margin:1em 0 1em 1.5em; border-left:2px solid #eee; padding-left:1em; font-size:95%;}
 
 article .meta{line-height:1.6em; font-size:80%; margin:0.5em 0 2em 0; color:#999;}
 article .meta:last-child{margin-bottom:0;}
