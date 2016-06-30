@@ -9,7 +9,7 @@
 var site = {
 	InitMap: {
 		list: function () {
-			// site.VAR_AUTO_LOAD_ON_SCROLL && elf(window).on('scroll', site.Handlers.scrolling);
+			site.VAR_AUTO_LOAD_ON_SCROLL && elf(window).on('scroll', site.Handlers.scrolling);
 		},
 		
 		post: function () {
@@ -28,11 +28,11 @@ var site = {
 	
 	Handlers: {
 		deferLoad: function () {
-			// elf('article').toArray()
-			// 	.filter(site.Util.isViewable)
-			// 	.filter(function (item) {
-			// 		return item.getAttribute('content-loaded') != 1;
-			// 	}).slice(0, site.VAR_AUTO_LOAD_ON_SCROLL).forEach(site.Handlers.loadArticle);
+			elf('article').toArray()
+				.filter(site.Util.isViewable)
+				.filter(function (item) {
+					return item.getAttribute('content-loaded') != 1;
+				}).slice(0, site.VAR_AUTO_LOAD_ON_SCROLL).forEach(site.Handlers.loadArticle);
 			
 		},
 		
@@ -52,8 +52,7 @@ var site = {
 			content = content.join('</p>');
 			content = content.split(/<\/article>/)[0];
 			article.query('>.article-content').html(content);
-			// article.attr('content-loaded', 1);
-			article.attr('content-loaded', 0);
+			article.attr('content-loaded', 3);
 			article.query('pre').forEach(function (item) {
 				hljs.highlightBlock(item);
 			});
