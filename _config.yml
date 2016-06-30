@@ -3,7 +3,7 @@ permalink: /posts/:title.html
 exclude:
   - README.md
 
-name: Your Name's Site
+name: sotter.github.io
 host: localhost
 desc: Some description of your site.
 
