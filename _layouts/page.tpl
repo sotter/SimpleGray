@@ -49,6 +49,7 @@
 			<figcaption><strong>{{ site.meta.author.name }}</strong></figcaption>
 		</figure>
 		<p>{% site.desc %}</p>
+		<p> asdjasljdal;sfjda;sldfjkajsdlfkjads;lfj</p>
 	</div>
 	
 	<div class="block block-license">
