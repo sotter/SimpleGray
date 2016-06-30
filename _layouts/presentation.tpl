@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="/lib/reveal.js/css/reveal.css">
 <link rel="stylesheet" href="/lib/reveal.js/css/theme/default.css" id="theme">
 <link rel="stylesheet" href="/assets/css/reveal.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/code/pygments.css" />
 
 <style>
 .sec-new-things li{
