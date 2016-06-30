@@ -36,12 +36,12 @@ http请求由三部分组成，分别是：请求行、消息报头、请求正�
 
 ***1.3.1 请求行： GET /load_balancer?client_type=1&client_version=300 HTTP/1.1***
 
-格式：```Method Request-URI HTTP-Version CRLF``` 
+格式：`Method Request-URI HTTP-Version CRLF`
 
 对应关系：
 
 |字段|对应值|备注|
-|-|-|-|
+|---|---|---|
 |Method|GET|
 |Request-URI|/load_balancer?client_type=1&client_version=300|
 |HTTP-Version|HTTP/1.1|
@@ -50,7 +50,7 @@ http请求由三部分组成，分别是：请求行、消息报头、请求正�
 **引申：除了GET方法还有以下几个方法， 主要用到的是前6种**
 
 |Method|说明|
-|-|-|
+|---|---|
 |GET     |请求获取Request-URI所标识的资源 |
 |POST    |在Request-URI所标识的资源后附加新的数据|
 |HEAD    |请求获取由Request-URI所标识的资源的响应消息报头|
@@ -62,24 +62,24 @@ http请求由三部分组成，分别是：请求行、消息报头、请求正�
 
 ***1.3.2 消息头***
 
-```Host: 10.11.3.50:8081``` -> 表示要连接的服务器地址, 不多解释；
+`Host: 10.11.3.50:8081` -> 表示要连接的服务器地址, 不多解释；
 
-```Connection: keep-alive``` ->使用持久连接，看下面的维基解释：
+`Connection: keep-alive` ->使用持久连接，看下面的维基解释：
 
 维基解释：
-```
-这样做，连接就不会中断，而是保持连接。当客户端发送另一个请求时，它会使用同一个连接。这一直继续到客户端或服务器端认为会话已经结束，其中一方中断连接。
 
-在 HTTP 1.1 中 所有的连接默认都是持续连接，除非特殊声明不支持。[1] HTTP 持久连接不使用独立的 keepalive 信息，而是仅仅允许多个请求使用单个连接。然而， Apache 2.0 httpd 的默认连接过期时间[2] 是仅仅15秒[3] ，对于 Apache 2.2 只有5秒。[4] 短的过期时间的优点是能够快速的传输多个web页组件，而不会绑定多个服务器进程或线程太长时间。[5]
-```
+	这样做，连接就不会中断，而是保持连接。当客户端发送另一个请求时，它会使用同一个连接。这一直继续到客户端或服务器端认为会话已经结束，其中一方中断连接。
 
-```Cache-Control: max-age=0``` 缓存策略，为了提升性能和减少服务器重复请求的压力， max-age表示缓存失效时间；告知服务端是没有响应的；
+	在 HTTP 1.1 中 所有的连接默认都是持续连接，除非特殊声明不支持。[1] HTTP 持久连接不使用独立的 keepalive 信息，而是仅仅允许多个请求使用单个连接。然而， Apache 2.0 httpd 的默认连接过期时间[2] 是仅仅15秒[3] ，对于 Apache 2.2 只有5秒。[4] 短的过期时间的优点是能够快速的传输多个web页组件，而不会绑定多个服务器进程或线程太长时间。[5]
 
-```Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8```
+
+> Cache-Control: max-age=0``` 缓存策略，为了提升性能和减少服务器重复请求的压力， max-age表示缓存失效时间；告知服务端是没有响应的；
+
+> Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8```
 
 表示浏览器想要接受的文件格式，如果是文本的html格式，application的xhtml+xml格式的，image webp格式的；
 
-```Upgrade-Insecure-Requests: 1``` 浏览器可以自动升级请求；
+`Upgrade-Insecure-Requests: 1` 浏览器可以自动升级请求；
 
 ```User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.86 Safari/537.36``` 浏览器把自己的信息告知服务端，服务端可以根据不同的浏览器类型和版本号做适配；
 
@@ -117,12 +117,12 @@ RESPONSE：wireshark 抓包
 	
 Respone主要由3部分组成：状态行，包头，包体组成； 通过抓包来看，状态行和header之间只有一个换行，包头和包体之间有两个换行；
 
-***2.1 状态行  ***
+***2.1 状态行***
 HTTP/1.1 200 OK   由协议版本、状态码、message三部分组成；
 
 引申：状态码
 |状态码|含义|示例|
-|-|-|-|
+|---|---|---|
 |1XX |提示信息 - 表示请求已被成功接收，继续处理 | |
 |2XX |成功 - 表示请求已被成功接收，理解，接受 ||
 |3XX |重定向 - 要完成请求必须进行更进一步的处理 | |
@@ -132,7 +132,7 @@ HTTP/1.1 200 OK   由协议版本、状态码、message三部分组成；
 详细含义可查看维基百科：
 https://zh.wikipedia.org/wiki/HTTP%E7%8A%B6%E6%80%81%E7%A0%81
 
-***2.2 Header ***
+***2.2 Header***
 
 Content-Type: 内容类型，在本实例中是json类型；
 其他不做详解了；
