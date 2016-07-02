@@ -33,7 +33,6 @@ custom:
 
     scrollingLoadCount: 0                         # 滚屏自动加载文章数量，“0”为关闭
 
-//http://en.gravatar.com/avatar/80a17bb7ecb37f2f1f0e2906b0e2c253
 meta:
     author:
         name: Sotter Liu
