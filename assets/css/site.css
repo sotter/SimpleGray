@@ -12,6 +12,7 @@ input,textarea{resize:none;}
 		position:relative; zoom:1;
 		width:62%;
 		padding:2em 3em;
+		background:#eee;
 	}
 	aside{
 		position:fixed;
