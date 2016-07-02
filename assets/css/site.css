@@ -15,7 +15,7 @@ input,textarea{resize:none;}
 	}
 	aside{
 		position:fixed;
-		left:62%;
+		left:70%;
 		top:0;
 		right:0;
 		height:100%;
@@ -73,7 +73,7 @@ article h5,
 article h6,
 article p{margin:.8em 0;}
 article h1{font-size:1.6em;}
-article h2{font-size:1.4em;}
+article h2{font-size:1.2em;}
 article p img{max-width: 100%;}
 article ul,
 article ol{padding-left:2em;}
