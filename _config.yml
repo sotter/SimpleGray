@@ -31,7 +31,7 @@ custom:
       - name:  another
         title: Another Category
 
-    scrollingLoadCount: 100                         # 滚屏自动加载文章数量，“0”为关闭
+    scrollingLoadCount: 0                         # 滚屏自动加载文章数量，“0”为关闭
 
 meta:
     author:
