@@ -23,13 +23,13 @@ highlighter: pygments
 custom:
     category:
         default: Default Category
-        another: Another Category
+        web:  web Category
     categories:
       - name:  default
         title: Default Category
 
-      - name:  another
-        title: Another Category
+      - name:  web
+        title: web Category
 
     scrollingLoadCount: 0                         # 滚屏自动加载文章数量，“0”为关闭
 
