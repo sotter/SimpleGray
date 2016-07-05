@@ -1,7 +1,7 @@
 ---
 layout: post
 title: SublimeText3 支持执行运行JS，记录下过程；
-category: 前端学习
+category: web
 ---
 
 #MAC SublimeText3 run JavaScript
