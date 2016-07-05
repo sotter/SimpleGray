@@ -23,7 +23,7 @@
 	{{ content }}
 
 	<footer>
-		<p>&copy; Since 2016, 伟大从这里查开始</p>
+		<p>&copy; Since 2016, 伟大便从这里开始</p>
 	</footer>
 </div>
 
