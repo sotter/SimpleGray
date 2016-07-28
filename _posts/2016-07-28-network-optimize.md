@@ -118,7 +118,7 @@ net.ipv4.tcp_wmem = 30000000 30000000 30000000
 上面3个值分别对应了low, pressure, high的状态，注意：单位是内存页，默认值是4096字节，可通过getpagesize函数查询当前系统的内存大小；
 
 |名称|大小|含义|
-|--|--|--|
+|---|---|---|
 |low| 23G  |当TCP使用了低于该值的内存页面数时，TCP不会考虑释放内存;|
 |pressure|31G|当TCP使用了超过该值的内存页面数量时，TCP试图稳定其内存使用，进入pressure模式，当内存消耗低于low值时则退出pressure状态;|
 |high| 47G | 允许所有tcp sockets用于排队缓冲数据报的页面量，当内存占用超过此值，系统拒绝分配socket，后台日志输出“TCP: too many of orphaned sockets”;|
