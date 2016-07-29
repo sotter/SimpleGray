@@ -4,7 +4,7 @@ title: 高性能网络服务器-协议层优化
 category: default
 ---
 
-#### 0. TCP连接过程
+## 0. TCP连接过程
 
 > 主动建立方：CLOSED->SYN_SEND->ESTABLISHED
 
@@ -13,7 +13,7 @@ category: default
 设置监听状态队列的最大值： 高性能的服务端可能用到的，net.core.somaxconn = 100000
 
 
-#### 1. TCP连接关闭过程 - 主动关闭方
+## 1. TCP连接关闭过程 - 主动关闭方
 
 > 状态迁移图：ESTABLISHED->FIN_WAIT_1->FIN_WAIT_2->TIME_WAIT->CLOSED
 
@@ -48,7 +48,7 @@ MSL指的是报文段的最大生存时间，如果报文段在网络活动了MS
 
 方法3： 设置tcp_max_tw_buckets参数，TIME_WAIT的总数，可以防止一些简单的DDos攻击；
 
-#### 2. TCP连接关闭过程 - 被动关闭方
+## 2. TCP连接关闭过程 - 被动关闭方
 
 >状态迁移图： ESTABLISHED->CLOSE_WAIT->LAST_ACK->CLOSED
 
@@ -63,7 +63,7 @@ MSL指的是报文段的最大生存时间，如果报文段在网络活动了MS
 
 [参见这里](http://unliminet.blog.51cto.com/380895/346686)
 
-#### 3. TCP数据传输
+## 3. TCP数据传输
 
 **TCP快速重传**
 TODO： 关于TCP的快速重传和快速回复，后续专题研究一下
@@ -123,7 +123,7 @@ net.ipv4.tcp_wmem = 30000000 30000000 30000000
 |pressure|31G|当TCP使用了超过该值的内存页面数量时，TCP试图稳定其内存使用，进入pressure模式，当内存消耗低于low值时则退出pressure状态;|
 |high| 47G | 允许所有tcp sockets用于排队缓冲数据报的页面量，当内存占用超过此值，系统拒绝分配socket，后台日志输出“TCP: too many of orphaned sockets”;|
 
-#### 4. TCP调优
+## 4. TCP调优
 
 ```
 net.core.netdev_max_backlog = 400000
