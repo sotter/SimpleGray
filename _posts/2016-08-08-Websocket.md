@@ -73,8 +73,10 @@ category: default
 
 Server端在完成握手后，后面对于这个socket上面发来的数据就按照ws帧的方式解析了，而不是原来的HTTP协议，双方就可以开始美好的全双工通信之旅了。
 
+在测试时对websocket进行抓包，虽然没有进行SSL加密，但是简单的加密的；如果MASK被置为1，Masking-key被设置为密钥，与原文进行异或编码，所以直接抓包是看不到明文的；
 
 参考  
+
 1. [WebSocket 实战](http://www.ibm.com/developerworks/cn/java/j-lo-WebSocket/index.html)
 
 
