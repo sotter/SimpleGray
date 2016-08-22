@@ -89,6 +89,7 @@ int main()
 > void makecontext(ucontext_t *ucp, void (*func)(), int argc, ...); 
 
 
+Makecontext在GLibc中的源码如下：
 
 ```cpp
 
@@ -160,12 +161,118 @@ __makecontext (ucontext_t *ucp, void (*func) (void), int argc, ...)
   va_end (ap);
 
 }
+```
+
+man:
+> The makecontext() function modifies the context pointed to by ucp (which was obtained from a call to getcontext(3)). Before invoking makecontext(), the caller must allocate a new stack for this context and assign its address to ucp->uc_stack, and define a successor context and assign its address to ucp->uc_link.
+
+>When this context is later activated (using setcontext(3) or swapcontext()) the function func is called, and passed the series of integer (int) arguments that follow argc; the caller must specify the number of these arguments in argc. When this function returns, the successor context is activated. If the successor context pointer is NULL, the thread exits.
+
+setcontext 或者 swapcontext 在调用makecontext生成的ucp时，首先要调用func，当这个函数函数调用返回后，successor指向的上下文被激活，如果successor指向NULL，那么线程执行退出；
+
+getcontext和setcontext不就够了吗，为什么还要用makecontext？
+即在上下文切换时，为什么要先执行一个函数，
+
+
+***swapcontext***
+> int swapcontext(ucontext_t *oucp, ucontext_t *ucp);
+
+man: 
+> The swapcontext() function saves the current context in the structure pointed to by oucp, and then activates the context pointed to by ucp.
+
+swapcontext 保存当前oucp指向的上下文，同时激活ucp执行的上线并运行；
+
+### 2. 实现线程切换
+
+```cpp
+#include <ucontext.h>  
+#include <stdio.h>  
+  
+void func1(void * arg)  
+{  
+    puts("1");  
+    puts("11");  
+    puts("111");  
+    puts("1111");  
+  
+}  
+void context_test()  
+{  
+    char stack[1024*128];  
+    ucontext_t child,main;  
+  
+    getcontext(&child);                       //获取当前上下文  
+    child.uc_stack.ss_sp = stack;             //指定栈空间  
+    child.uc_stack.ss_size = sizeof(stack);   //指定栈空间大小  
+    child.uc_stack.ss_flags = 0;  
+    child.uc_link = &main;//设置后继上下文  
+  
+    makecontext(&child,(void (*)(void))func1,0);   //修改上下文指向func1函数  
+  
+    /* swapcontext 的执行过程：
+     * 1. 切换到函数fun1中运行，此时的上下文中已经是child的上线文了；
+     * 2. 执行完毕后执行clild的后继上下文 &main.  
+     */
+    swapcontext(&main,&child);   //切换到child上下文，保存当前上下文到main  
+    puts("main");//如果设置了后继上下文，func1函数指向完后会返回此处  
+}  
+  
+int main()  
+{  
+    context_test();  
+  
+    return 0;  
+}  
 
 ```
 
-> int swapcontext(ucontext_t *oucp, ucontext_t *ucp);
 
+### 3. 实现自己的线程库
 
+### 4. 实现自己的协程库
 
+```cpp 
+#include "uthread.h"
+#include <stdio.h>
 
+void func2(void * arg)
+{
+    puts("22");
+    puts("22");
+    uthread_yield(*(schedule_t *)arg);
+    puts("22");
+    puts("22");
+}
+
+void func3(void *arg)
+{
+    puts("3333");
+    puts("3333");
+    uthread_yield(*(schedule_t *)arg);
+    puts("3333");
+    puts("3333");
+
+}
+
+void schedule_test()
+{
+    schedule_t s;
+
+    int id1 = uthread_create(s,func3,&s);
+    int id2 = uthread_create(s,func2,&s);
+
+    while(!schedule_finished(s)){
+        uthread_resume(s,id2);
+        uthread_resume(s,id1);
+    }
+    puts("main over");
+
+}
+int main()
+{
+    schedule_test();
+
+    return 0;
+}
+```
 
