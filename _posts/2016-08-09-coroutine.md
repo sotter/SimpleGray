@@ -180,7 +180,18 @@ getcontext和setcontext不就够了吗，为什么还要用makecontext？
 man: 
 > The swapcontext() function saves the current context in the structure pointed to by oucp, and then activates the context pointed to by ucp.
 
-swapcontext 保存当前oucp指向的上下文，同时激活ucp执行的上线并运行；
+还是描述的不够清楚，直接看源码，原来如此简单：跳转到ucp的上下文，然后把当前的上下文放到oucp中；
+
+```cpp
+int
+__swapcontext (ucontext_t *oucp, const ucontext_t *ucp)
+{
+  struct rv rv = __getcontext (oucp);
+  if (rv.first_return)
+    __setcontext (ucp);
+  return 0;
+}
+```
 
 ### 2. 实现线程切换
 
@@ -220,7 +231,6 @@ void context_test()
 int main()  
 {  
     context_test();  
-  
     return 0;  
 }  
 
