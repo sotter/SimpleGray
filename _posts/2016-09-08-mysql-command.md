@@ -4,6 +4,8 @@ title: Mysql 常用命令
 category: default
 ---
 
+### 1. 登录命令
+
 ***mysql为了passwork和Port简写的冲突，端口号是P，passwd是小p example:***
 
 > $ mysql -utest -ptest123 -h127.0.0.1 -P3306 -Dimcloud -e'select * from log limit 10'
