@@ -24,12 +24,16 @@ custom:
     category:
         default: Default Category
         web:  web Category
+        C++:  C++ Category
     categories:
       - name:  default
         title: Default Category
 
       - name:  web
         title: web Category
+
+      - name:  C++ 
+        title: C++ Category
 
     scrollingLoadCount: 0                         # 滚屏自动加载文章数量，“0”为关闭
 
