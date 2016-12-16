@@ -1,6 +1,6 @@
 ---
 layout: post
-title: golang Reflect 源码简析；
+title: golang Reflect 源码简析
 category: golang
 ---
 
