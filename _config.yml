@@ -25,6 +25,7 @@ custom:
         default: Default Category
         web:  web Category
         C++:  C++ Category
+        golang: golang Category
     categories:
       - name:  default
         title: Default Category
@@ -34,8 +35,10 @@ custom:
 
       - name:  C++ 
         title: C++ Category
+      - name: golang
+        title: golang
 
-    scrollingLoadCount: 0                         # 滚屏自动加载文章数量，“0”为关闭
+    scrollingLoadCount: 10                         # 滚屏自动加载文章数量，“0”为关闭
 
 meta:
     author:
