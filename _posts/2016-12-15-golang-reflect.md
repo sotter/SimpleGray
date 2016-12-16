@@ -39,6 +39,7 @@ type rtype struct {
 	ptrToThis  typeOff  // type for pointer to this type, may be zero (typeOff -> int32)
 }
 ```
+
 其中kind即表示了golang所能支持的26中类型： 
 
 ```go
@@ -71,7 +72,6 @@ const (
 	Struct
 	UnsafePointer
 )
-
 ```
 
 ### 1. 核心方法的实现：
@@ -103,7 +103,7 @@ func (n name) nameLen() int {
 }
 ```
 
-```golang
+```go
 func (n name) name() (s string) {
 	if n.bytes == nil {
 		return
@@ -120,8 +120,8 @@ func (n name) name() (s string) {
 ```
 
 下面看一下ResoveNameOff的实现： 
-```go
 
+```go
 //1. 先从firstmoduledata中查询TODO： firstmoduledata 是干啥使的？
 //2. 从全局管理的维护reflectOffs中寻找，reflectOffs维护了所有rtype object与offset的映射关系；
 //后续： Runtime packet包
@@ -175,6 +175,7 @@ type interfaceType struct {
 从对象模型的角度来看，变量interface相当于赋值给它值的变量首部的一个引用。 如 i Interface  = &StructVar, i即为StructVar首部的一个引用，地址&i即为地址&StructVar；
 
 **引申问题2**： Go是传值调用的， Interface传递是否有指向对象的内存拷贝
+
 ```
 i := &StructVar
 func test( i Interface{}) b Interface {}  {
@@ -223,6 +224,7 @@ func (t *rtype) MethodByName(name string) (m Method, ok bool) {
 	return Method{}, false
 }
 ```
+
 现在来看`utmethods := ut.methods()`的实现：   
 -> 第一步： 先从缓存中获取，GO程序中有一个&rtype到methods的缓存；  
 -> 第二步： 如果缓存中获取，那么根据uncommonType获取；   
@@ -230,7 +232,6 @@ func (t *rtype) MethodByName(name string) (m Method, ok bool) {
 > 引申问题： 缓存中是否超时释放的机制？ 通过GC，还是通过其他的？
 
 ```
-
 // A MethodSetCache records the method set of each type T for which
 // MethodSet(T) is called so that repeat queries are fast.
 // The zero value is a ready-to-use cache instance.
@@ -291,6 +292,7 @@ func (t *rtype) exportedMethods() []method {
 ```
 
 首先来看一下uncommon的字段结构
+
 ```go
 type uncommonType struct {
 	pkgPath nameOff // import path; empty for built-in types like int, string
